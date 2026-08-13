@@ -8,7 +8,6 @@ Expected results with the supplied code and `RANDOM_STATE = 42`:
 |---|---|---:|---:|---:|---:|---:|
 | BEED | Gradient Boosting | 0.8864 | 0.8883 | 0.8864 | 0.8864 | 0.9809 |
 | BEED | MLP | 0.9335 | 0.9340 | 0.9335 | 0.9336 | 0.9920 |
-| CHB-MIT | Gradient Boosting | 0.9655 | 0.9451 | 0.9885 | 0.9663 | 0.9637 |
 | CHB-MIT | MLP | 0.9770 | 0.9560 | 1.0000 | 0.9775 | 0.9983 |
 
 For BEED, precision/recall/F1 are macro-averaged and ROC-AUC is macro one-vs-rest.
