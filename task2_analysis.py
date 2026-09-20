@@ -145,7 +145,7 @@ for model_name, model in [("Gradient Boosting", gb_beed), ("MLP", mlp_beed)]:
         "recall_macro": recall_score(y_beed, pred, average="macro"),
         "f1_macro": f1_score(y_beed, pred, average="macro"),
         "roc_auc_macro_ovr": roc_auc_score(y_beed, prob, multi_class="ovr", average="macro"),
-        "class_performance_gap_max_minus_min": float(mf.difference(method="between_groups"))
+        "class_performance_gap_max_minus_min": float(mf.difference(method="between_groups").iloc[0])
     })
 
 pd.DataFrame(fair_rows).to_csv(OUT / "beed_fairlearn_by_class.csv", index=False)
