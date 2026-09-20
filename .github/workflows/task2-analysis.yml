@@ -1,0 +1,20 @@
+name: Task 2 Analysis
+on:
+  push:
+    branches: [task2-analysis]
+  workflow_dispatch:
+jobs:
+  analyse:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - run: pip install numpy pandas matplotlib scipy mne scikit-learn fairlearn ucimlrepo
+      - run: python task2_analysis.py
+      - uses: actions/upload-artifact@v4
+        with:
+          name: task2-outputs
+          path: task2_outputs/
