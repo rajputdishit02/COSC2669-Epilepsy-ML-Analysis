@@ -9,7 +9,6 @@ import matplotlib.pyplot as plt
 from scipy.signal import welch
 import mne
 
-from ucimlrepo import fetch_ucirepo
 from sklearn.base import clone
 from sklearn.ensemble import GradientBoostingClassifier
 from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score, roc_auc_score
@@ -26,9 +25,10 @@ OUT.mkdir(exist_ok=True)
 # -----------------------------
 # BEED: dataset, target and class distribution
 # -----------------------------
-beed_ds = fetch_ucirepo(id=1134)
-X_beed = beed_ds.data.features.copy()
-y_beed = beed_ds.data.targets.squeeze().astype(int)
+beed_url = "https://raw.githubusercontent.com/Anuragspace/EPILEPTIC-SEIZURES/main/BEED_Data.csv"
+beed = pd.read_csv(beed_url)
+X_beed = beed.drop(columns=["y"]).copy()
+y_beed = beed["y"].astype(int).copy()
 
 class_names = {
     0: "Healthy",
